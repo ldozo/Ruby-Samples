@@ -2,3 +2,4 @@
 test: 
   adapter: sqlite3
   database: db/ideabox_test
+  
