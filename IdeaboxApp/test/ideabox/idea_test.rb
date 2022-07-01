@@ -5,7 +5,7 @@ class IdeaTest < MiniTest::Unit::TestCase
     
     def test_it_exists
         temporarily do
-            idea = Idea.create(:description => 'A wonderful idea!.')
+            Idea.create(:description => 'A wonderful idea!.')
             assert_equal 1, Idea.count
             raise ActiveRecord::Rollback
         end
