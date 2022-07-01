@@ -1,0 +1,19 @@
+$:.unshift File.expand_path("./../lib", __FILE__)
+
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+    t.pattern = "test/**/*_test.rb"
+end
+
+task default: :test # What's this.
+
+namespace :db do
+    desc "migrate your database"
+    task :migrate do
+        require "bundler"
+        Bundler.require
+        require "./config/environment"
+        ActiveRecord::MigrationContext.new("db/migrate/").migrate
+    end
+end
